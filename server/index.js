@@ -15,3 +15,8 @@ var url = 'mongodb://mtomawe-db:awgtNvUx2xLGHSkgzVuOEHosWQE3wUKFwElCxJggrwpGR8G2
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(root, 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile('build/index.html', { root });
+})
+app.listen(port, () => console.log('API running on localhost:${port}'));
