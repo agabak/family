@@ -1,0 +1,10 @@
+{
+    "name": "ng2-startingline",
+    "version": "1.0.0",
+    "dependencies": {
+        "express": "4.13.4",
+        "body-parser": "^1.18.2",
+        "mongodb": "^2.2.31",
+        "assert": "^1.4.1"
+    }
+}
