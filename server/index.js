@@ -4,13 +4,15 @@ bodyParser = require('body-parser'),
 path = require('path'),
 root = '/',
 port = process.env.Port || 3000,
-app = express();
+app = express(),
+routes = require('./routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(root, 'build')));
 
 //serving api routes
+app.use('/api',routes)
 app.get('*', (req, res) => {
 res.sendFile('build/index.html', { root });
 })
