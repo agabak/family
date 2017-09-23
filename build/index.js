@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(root, 'build')));
 
 //serving api routes
-app.use('/api',routes)
+app.use('/api',routes);
 app.get('*', (req, res) => {
 res.sendFile('build/index.html', { root });
 })
