@@ -1,3 +1,26 @@
+
+var express = require('express'),
+bodyParser = require('body-parser'),
+path = require('path'),
+root = '/',
+port = process.env.Port || 3000,
+app = express(),
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(root, 'build')));
+
+//serving api routes
+
+app.get('*', (req, res) => {
+res.sendFile('build/index.html', { root });
+})
+app.listen(port, () => console.log('API running on localhost:${port}'));
+
+
+
+/*
 var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
@@ -20,3 +43,4 @@ app.get('*', (req, res) => {
     res.sendFile('build/index.html', { root });
 })
 app.listen(port, () => console.log('API running on localhost:${port}'));
+*/
